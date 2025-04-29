@@ -193,7 +193,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import {
   NepaliDate,
   MONTH_EN,
@@ -511,20 +511,20 @@ export default {
         this.showMonth = true;
       }
     },
-    select(selectedDate) {
+    select(selectedDate, donotToggle) {
       this.date = selectedDate;
       this.formatedValue = this.date.format("YYYY-MM-DD");
       this.$emit("input", this.formatedValue);
       this.$emit("onSelect", this.formatedValue);
-      this.toggleCalendar();
+      if(donotToggle == null && !donotToggle) this.toggleCalendar();
     },
-    updateInputtedValue() {
+    updateInputtedValue(donotToggle) {
       if (!/^\d{4}-\d{2}-\d{2}$/.test(this.formatedValue)) {
         this.formatedValue = this.modelValue;
       }
       try {
         const val = new NepaliDate(this.formatedValue);
-        this.select(val);
+        this.select(val, donotToggle);
       } catch (e) {
         this.formatedValue = this.modelValue;
       }
@@ -554,13 +554,15 @@ export default {
       if (!isInsideCalendar && !isInsideInput && !isMonthOrYearClick) {
         this.visible = false;
         this.reset();
+        if (this.formatedValue != this.modelValue) {
+          this.updateInputtedValue(true);
+        }
         document.removeEventListener("click", this.handleClickOutside);
       }
     },
     reset() {
       this.showMonth = false;
       this.showYear = false;
-      this.formatedValue = this.value;
       this.date = this.modelValue
         ? new NepaliDate(this.modelValue)
         : new NepaliDate();
