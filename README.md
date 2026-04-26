@@ -1,46 +1,54 @@
-# Nepali Date Picker
+# Nepali Date Picker (Vue 2) 🇳🇵
 
-A Vue 2 component for selecting dates in the Nepali calendar (Bikram Sambat).
+[![npm version](https://img.shields.io/npm/v/nepali-datepicker-vue2.svg?style=flat-square)](https://www.npmjs.com/package/nepali-datepicker-vue2)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Docs](https://img.shields.io/badge/Docs-Official-blue?style=flat-square)](https://nepalidatepicker.sandip-ghimire.com.np/docs/Vue2/)
 
-## Features
+A clean and lightweight Nepali (Bikram Sambat) date picker component for Vue 2.
 
-- Vue 2 implementation
-- Nepali (BS) calendar date picker with clean UI
-- Support for date conversion between AD and BS
-- Year and month selection
-- Today highlighting
-- Keyboard accessibility
+> ⚠️ **Note**: This package is in maintenance mode. For new projects, we recommend using the [Vue 3 version](https://github.com/SandipGhimire/Nepali-DatePicker-Vue3).
 
-## Installation
+---
+
+## 📚 Full Documentation
+
+For advanced usage, examples, and full API reference, visit the official documentation:
+👉 **[https://nepalidatepicker.sandip-ghimire.com.np/](https://nepalidatepicker.sandip-ghimire.com.np/)**
+
+---
+
+## ✨ Features
+
+- **Vue 2 Support**: Native support for Vue 2 projects.
+- **Accurate BS Dates**: Powered by `nepali-date-library`.
+- **Year & Month Selection**: Navigate quickly through the calendar.
+- **Today Highlighting**: Easily identify the current date.
+- **Customizable**: Add your own CSS classes for styling.
+
+---
+
+## 🚀 Installation
 
 ```bash
 npm install nepali-datepicker-vue2
 ```
 
-## Dependency
-- [Vue](https://vuejs.org/)
-- [Nepali Date Library](https://www.npmjs.com/package/nepali-date-library) 
+### Import Styles
 
-## Usage
+Import the required CSS in your main entry file (e.g., `main.js`):
 
-## Import Styles
-
-Make sure to import the CSS styles in your main entry file (e.g., `main.ts` or `main.js`):
-
-```ts
-import 'nepali-datepicker-vue2/main.css';
+```js
+import "nepali-datepicker-vue2/main.css";
 ```
 
-## Initialization Example
+---
+
+## 📖 Usage
 
 ```vue
 <template>
-  <div class="app-container">
-    <NepaliDatepicker
-      v-model="selectedDate"
-      placeholder="Select a date"
-      classValue="custom-datepicker"
-    />
+  <div>
+    <NepaliDatepicker v-model="selectedDate" placeholder="Select Date" />
   </div>
 </template>
 
@@ -60,25 +68,20 @@ export default {
 </script>
 ```
 
-## Props
+---
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `modelValue` | `String` | `''` | v-model binding for the selected date (YYYY-MM-DD format) |
-| `yearSelect` | `Boolean` | `true` | Enable/disable year selection |
-| `monthSelect` | `Boolean` | `true` | Enable/disable month selection |
-| `classValue` | `String` | `''` | Additional CSS class for the input element |
-| `placeholder` | `String` | `''` | Placeholder text for the input element |
+## 🛠 Props
 
-## Events
-| Event | Description |
-|------|-------------|
-| `@onSelect` | Called when date is selected |
+| Prop          | Type      | Default | Description                               |
+| ------------- | --------- | ------- | ----------------------------------------- |
+| `value`       | `string`  | `''`    | v-model binding (BS date in `YYYY-MM-DD`) |
+| `yearSelect`  | `boolean` | `true`  | Enable/disable year selection             |
+| `monthSelect` | `boolean` | `true`  | Enable/disable month selection            |
+| `classValue`  | `string`  | `''`    | Custom class for the root element         |
+| `placeholder` | `string`  | `''`    | Input placeholder                         |
 
-## Browser Support
+---
 
-The component supports all modern browsers that are compatible with Vue 2.
+## 📄 License
 
-## License
-
-MIT License
+MIT © [Sandip Ghimire](https://github.com/SandipGhimire)
